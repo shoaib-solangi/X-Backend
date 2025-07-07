@@ -1,9 +1,10 @@
 import express from "express"
 const router = express.Router();
 import { getPosts, getPost, createPost, getUserPosts } from "../controllers/post.controller.js";
-import { protectedRoute } from "../middlewares/auth.middleware.js";
-import { likePost } from "../controllers/like.controller.js";
+import { protectedRoute } from "../middleware/auth.middleware.js";
+import { likePost } from "../controllers/post.controller.js";
 import { deletePost } from "../controllers/post.controller.js";
+
 
 import upload from "../middleware/upload.middleware.js";
 router.get("/" , getPosts);
@@ -22,4 +23,4 @@ router.delete("/:postId" , protectedRoute , deletePost);
 
 
 
-export default Router;
+export default router;
